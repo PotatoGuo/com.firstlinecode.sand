@@ -31,6 +31,10 @@
 			<groupId>com.firstlinecode.sand.protocols</groupId>
 			<artifactId>com.firstlinecode.sand.protocols.actuator</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.firstlinecode.chalk</groupId>
+			<artifactId>com.firstlinecode.chalk</artifactId>
+		</dependency>
 	</dependencies>
 </project>
 

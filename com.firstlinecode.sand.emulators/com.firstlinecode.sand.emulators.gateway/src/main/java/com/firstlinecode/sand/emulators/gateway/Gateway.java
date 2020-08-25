@@ -62,8 +62,10 @@ import com.firstlinecode.sand.client.dmr.IModeRegistrar;
 import com.firstlinecode.sand.client.ibdr.IRegistration;
 import com.firstlinecode.sand.client.ibdr.IbdrPlugin;
 import com.firstlinecode.sand.client.ibdr.RegistrationException;
+import com.firstlinecode.sand.client.keepalive.KeepalivePlugin;
 import com.firstlinecode.sand.client.lora.DynamicAddressConfigurator;
 import com.firstlinecode.sand.client.lora.IDualLoraChipsCommunicator;
+import com.firstlinecode.sand.client.things.IKeepaliver;
 import com.firstlinecode.sand.client.things.ThingsUtils;
 import com.firstlinecode.sand.client.things.autuator.IActuator;
 import com.firstlinecode.sand.client.things.commuication.ParamsMap;
@@ -423,6 +425,8 @@ public class Gateway<C, P extends ParamsMap> extends JFrame implements ActionLis
 		
 		// Don't start actuator before the time that chat client has connected to server.
 		startActuator(chatClient);
+
+		startKeepAlive();
 	}
 	
 	private void connect(boolean dirty) {
@@ -506,6 +510,18 @@ public class Gateway<C, P extends ParamsMap> extends JFrame implements ActionLis
 		IActuator actuator = chatClient.createApi(IActuator.class);
 		actuator.start();
 	}
+
+	private void startKeepAlive() {
+		if (this.chatClient == null || !this.chatClient.isConnected()) {
+//			throw new IllegalStateException("Device identity is null. Please register your gateway.");
+			return;
+		}
+
+		IKeepaliver keepaliver = chatClient.createApi(IKeepaliver.class);
+		chatClient.getStream().setParsingListener(keepaliver);
+		chatClient.getStream().addConnectionListener(keepaliver);
+		keepaliver.start();
+	}
 	
 	private void stopWorking(IChatClient chatClient) {
 		stopSensor(chatClient);
@@ -539,6 +555,7 @@ public class Gateway<C, P extends ParamsMap> extends JFrame implements ActionLis
 	private void registerPlugins(IChatClient chatClient) {
 		chatClient.register(ConcentratorPlugin.class);
 		chatClient.register(ActuatorPlugin.class);
+		chatClient.register(KeepalivePlugin.class);
 	}
 
 	private StandardStreamConfig createStreamConfigWithResource() {
@@ -584,7 +601,7 @@ public class Gateway<C, P extends ParamsMap> extends JFrame implements ActionLis
 		IChatClient chatClient = new StandardChatClient(streamConfig);
 		chatClient.register(IbdrPlugin.class);
 		IRegistration registration = chatClient.createApi(IRegistration.class);
-		adddInternetLogListener(registration);
+		addInternetLogListener(registration);
 		
 		try {
 			deviceIdentity = registration.register(deviceId);
@@ -601,7 +618,7 @@ public class Gateway<C, P extends ParamsMap> extends JFrame implements ActionLis
 		updateStatus();
 	}
 
-	private void adddInternetLogListener(IRegistration registration) {
+	private void addInternetLogListener(IRegistration registration) {
 		IConnectionListener logListener = getLogConsoleConnectionListener();
 		if (logListener != null) {
 			registration.addConnectionListener(logListener);

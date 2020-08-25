@@ -400,6 +400,12 @@
         			<version>${granite.version}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>com.firstlinecode.granite.framework</groupId>
+				<artifactId>com.firstlinecode.granite.framework.parsing</artifactId>
+				<version>${granite.version}</version>
+			</dependency>
+
 			<!-- gem libraries -->
 			<dependency>
         			<groupId>com.firstlinecode.gem</groupId>
@@ -467,6 +473,12 @@
 				<artifactId>com.firstlinecode.sand.protocols.operator</artifactId>
 				<version>${sand.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>com.firstlinecode.sand.protocols</groupId>
+				<artifactId>com.firstlinecode.sand.protocols.keepalive</artifactId>
+				<version>${sand.version}</version>
+			</dependency>
 			
 			<dependency>
 				<groupId>com.firstlinecode.sand.protocols.emulators</groupId>
@@ -513,6 +525,12 @@
 			<dependency>
 				<groupId>com.firstlinecode.sand.client</groupId>
 				<artifactId>com.firstlinecode.sand.client.actuator</artifactId>
+				<version>${sand.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.firstlinecode.sand.client</groupId>
+				<artifactId>com.firstlinecode.sand.client.keepalive</artifactId>
 				<version>${sand.version}</version>
 			</dependency>
 

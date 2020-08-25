@@ -24,6 +24,7 @@
 		<module>com.firstlinecode.sand.client.concentrator</module>
 		<module>com.firstlinecode.sand.client.actuator</module>
 		<module>com.firstlinecode.sand.client.operator</module>
+		<module>com.firstlinecode.sand.client.keepalive</module>
 	</modules>
 
 </project>

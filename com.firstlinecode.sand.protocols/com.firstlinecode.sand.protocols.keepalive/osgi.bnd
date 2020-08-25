@@ -1,0 +1,10 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Basalt-Parsers: protocol-chain=iq|null->negotiation|urn:xmpp:keepalive;\
+ class=com.firstlinecode.sand.protocols.keepalive.Keepalive$KeepaliveNegotiation;\
+ type=naming-convention
+Basalt-Translators: protocol=keepalive-support|urn:xmpp:keepalive;\
+ class=com.firstlinecode.sand.protocols.keepalive.Keepalive$KeepaliveSupport;\
+ type=naming-convention

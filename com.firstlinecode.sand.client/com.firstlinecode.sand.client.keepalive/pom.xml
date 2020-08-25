@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>com.firstlinecode.sand.client</artifactId>
+        <groupId>com.firstlinecode.sand</groupId>
+        <version>0.1.0.RELEASE</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.firstlinecode.sand.client</groupId>
+    <artifactId>com.firstlinecode.sand.client.keepalive</artifactId>
+    <name>com.firstlinecode.sand.client.actuator</name>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.firstlinecode.sand.protocols</groupId>
+            <artifactId>com.firstlinecode.sand.protocols.keepalive</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.firstlinecode.chalk</groupId>
+            <artifactId>com.firstlinecode.chalk</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.firstlinecode.sand.client</groupId>
+            <artifactId>com.firstlinecode.sand.client.things</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

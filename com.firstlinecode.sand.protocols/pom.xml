@@ -24,6 +24,7 @@
 		<module>com.firstlinecode.sand.protocols.actuator</module>
 		<module>com.firstlinecode.sand.protocols.operator</module>
 		<module>com.firstlinecode.sand.protocols.emulators</module>
+		<module>com.firstlinecode.sand.protocols.keepalive</module>
 	</modules>
 
 </project>

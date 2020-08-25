@@ -26,6 +26,7 @@
 		<module>com.firstlinecode.sand.server.operator</module>
 		<module>com.firstlinecode.sand.server.lite</module>
 		<module>com.firstlinecode.sand.server.emulators.modes</module>
+		<module>com.firstlinecode.sand.server.keepalive</module>
 	</modules>
 
 </project>
